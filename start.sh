@@ -1,7 +1,7 @@
 #!/bin/sh
 
 /app/tailscaled --tun=userspace-networking --socks5-server=0.0.0.0:1055 &
-until /app/tailscale up --authkey=${TAILSCALE_AUTHKEY} --hostname=cloudrun-app --advertise-connector --advertise-tags=tag:cloud-run-connector
+until /app/tailscale up --authkey=${TAILSCALE_AUTHKEY} --hostname=cloudrun-app --advertise-exit-node --advertise-tags=tag:cloud-run
 do
     sleep 0.1
 done
